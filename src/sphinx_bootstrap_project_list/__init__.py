@@ -96,6 +96,17 @@ class BSPLNode(nodes.General, nodes.Element):
         raise RuntimeError("BSPLNode.html_depart should not be called, as we raise SkipNode in html_visit.")
 
 
+def TextualVisit(writer, node):
+    # only keep link children, more precisely the wrappers, they shall be rendered as-is
+    all_children = list(node.children[:])
+    node.children.clear()
+    all_text_children = [ch for ch in all_children if isinstance(ch, nodes.TextElement)]
+    node.children = all_text_children
+
+
+def TextualDepart(writer, node):
+    pass
+
 class BSPLDirective(SphinxDirective):
     option_spec = {
         'json': str 
@@ -160,8 +171,12 @@ class BSPLDirective(SphinxDirective):
 def setup(app:Sphinx):
     app.add_config_value("bspl_default_image", None, '')
     app.add_directive('bspl', BSPLDirective)
-    app.add_node(BSPLNode, html=(BSPLNode.html_visit, BSPLNode.html_depart))
-    app.add_node(GenericHTMLNode, html=(GenericHTMLNode.html_visit, GenericHTMLNode.html_depart))
+    app.add_node(BSPLNode, 
+                 html=(BSPLNode.html_visit, BSPLNode.html_depart),
+                 text=(TextualVisit, TextualDepart), 
+                 gemini=(TextualVisit, TextualDepart),
+                 latex=(TextualVisit, TextualDepart),
+    )
     
     return {
         'version': '0.1',

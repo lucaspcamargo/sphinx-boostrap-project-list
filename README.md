@@ -11,6 +11,7 @@ This project takes a JSON data source describing multiple projects and generates
 - **JSON Data Source**: Specify the path or URL to your JSON file containing project information.
 - **Images**: Meant to be used with images. Falls back to a global placeholder if not provided.
 - **Internal or External Links**: Add external links or resources to each project entry.
+- **Text Fallback**: Fallback to a list of links on non-HTML output.
 
 Configuration is typically managed via a JSON file and template files. See the project documentation for setup and customization details.
 
@@ -41,7 +42,7 @@ Below is an example `projects.json` file. The JSON is a dictionary where each ke
   "beta": {
     "nice_title": "Beta Tool",
     "descr": "Another example project.",
-    "index_path": "projects/beta.md",
+    "index_path": "projects/beta.md",   
     "image_path": "projects/beta_logo.png",
     "last_mod": "2025-07-15T14:22:10Z",
     "last_mod_fmt": "July 15, 2025",
