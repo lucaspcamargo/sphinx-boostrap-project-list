@@ -4,7 +4,7 @@ A tool for generating a Bootstrap-themed list of projects by consuming JSON data
 
 ## About
 
-This project takes a JSON data source describing multiple projects and generates an OK-looking, Bootstrap-styled HTML list. This is what powers the project lists of my site. Talk about meta stuff.
+This project takes a JSON data source describing multiple projects and generates an OK-looking, Bootstrap-styled HTML list. This is what powers the project lists of my/this site. Talk about meta stuff.
 
 ## Features
 
@@ -12,8 +12,6 @@ This project takes a JSON data source describing multiple projects and generates
 - **Images**: Meant to be used with images. Falls back to a global placeholder if not provided.
 - **Internal or External Links**: Add external links or resources to each project entry.
 - **Text Fallback**: Fallback to a list of links on non-HTML output.
-
-Configuration is typically managed via a JSON file and template files. See the project documentation for setup and customization details.
 
 ## Usage
 
@@ -66,4 +64,4 @@ More options to come in the future, patches always welcome.
 
 ## License
 
-This project is licensed under the GPL v3 License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL v3 License. See the LICENSE file for details.
