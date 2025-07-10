@@ -18,28 +18,6 @@ __description__ = 'Sphinx extension for rendering nice-looking project lists usi
 __keywords__ = 'documentation, sphinx, extension, bootstrap, html'
 
 
-class GenericHTMLNode(nodes.General, nodes.Element):
-    """
-    A generic HTML node that can be used to render custom HTML content.
-    This is a base class for other nodes that need to render HTML.
-    """
-    @staticmethod
-    def html_visit(translator:html_translator, node):
-        """
-        Visit method for rendering the HTML content of the node.
-        This method is called when the node is being processed for HTML output.
-        """
-        translator.body.append(translator.starttag(node, node['tagname'], **node.get('attributes', {})))
-    
-    @staticmethod
-    def html_depart(translator:html_translator, node):
-        """
-        Depart method for finalizing the HTML content of the node.
-        This method is called after the node has been processed for HTML output.
-        """
-        translator.body.append("</" + node['tagname'] + ">")
-
-
 class BSPLNode(nodes.General, nodes.Element):
 
     @staticmethod
