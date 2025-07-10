@@ -4,14 +4,13 @@
     <div class="row g-0">
         <div class="col-3">
             <div class="w-100 h-100 position-relative">
-                <img src="{{ item.image_path_rel }}" class="w-100 h-100 position-absolute object-fit-cover rounded-start dark-light" alt="{{ key }}" />
+                <img src="{{ item.image_path_rel }}" class="w-100 h-100 position-absolute object-fit-cover rounded-start dark-light" alt="{{ item.image_alt }}" />
             </div>
         </div>
         <div class="col-9">
             <div class="card-body">
-                <a href="#" class="stretched-link"></a>
+                <a href="{{ item.index_url }}" class="stretched-link"></a>
                 <h5 class="card-title" style="margin-top: 0">{{ item.nice_title }}</h5>
-                <p>{{ item.image_path_rel|safe }}</p>
                 <p class="card-text">{{ item.descr }}<br/>
                     <small class="text-muted">Updated on {{ item.last_mod_fmt }}</small>
                 </p>
